@@ -85,32 +85,38 @@ function Consumo({ agregarAlCarrito }) {
 
       {productoSeleccionado && (
         <div className="modal show fade d-block" tabIndex="-1" role="dialog" style={{ backgroundColor: 'rgba(0,0,0,0.6)' }}>
-          <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div className="modal-dialog modal-dialog-centered modal-lg"> {/* modal-lg para pantallas grandes, se ajusta automáticamente */}
             <div className="modal-content" style={{
-              borderRadius: '10px', background: 'linear-gradient(to right,rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0))', color: 'white', width: '500px', justifyContent: 'center', alignItems: 'center',
-              display: 'flex', flexDirection: 'column', padding: '50px', marginLeft: '160px',
+              borderRadius: '10px',
+              background: 'linear-gradient(to right,rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0))',
+              color: 'white',
+              display: 'flex',
+              flexDirection: 'column',
+              padding: '20px', 
             }}>
               <button type="button" className="btn-close" onClick={cerrarModal} style={{ position: 'absolute', top: '15px', right: '15px', backgroundColor: 'white' }}></button>
-              <div className="modal-header" style={{ borderBottom: 'none' }}>
-                <h5 className="modal-title">{productoSeleccionado.title}</h5>
+              <div className="modal-header" style={{ borderBottom: 'none', textAlign: 'center' }}> {/* Añadido textAlign: 'center' */}
+                <h5 className="modal-title w-100">{productoSeleccionado.title}</h5> {/* w-100 para que ocupe todo el ancho */}
               </div>
               <div className="modal-body text-center">
-                <img src={productoSeleccionado.image} alt={productoSeleccionado.title} className="img-fluid mb-3" style={{ maxHeight: '300px', objectFit: 'contain' }} />
+                <img src={productoSeleccionado.image} alt={productoSeleccionado.title} className="img-fluid mb-3" style={{ maxHeight: '200px', objectFit: 'contain' }} /> {/* Reducido maxHeight para móviles */}
                 <p><strong>ID:</strong> {productoSeleccionado.id}</p>
                 <p><strong>Precio:</strong> ${productoSeleccionado.price}</p>
                 <p><strong>Descripción:</strong> {productoSeleccionado.description}</p>
                 <p><strong>Categoría:</strong> {productoSeleccionado.category}</p>
                 <p><strong>Calificación:</strong> {productoSeleccionado.rating.rate} ({productoSeleccionado.rating.count} votos)</p>
               </div>
-               <button
-                    
-                    onClick={() => agregarAlCarrito(productoSeleccionado)} // <-- Se usa la prop recibida
-                    className="btn btn-secondary mt-2">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-              <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
-              <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
-            </svg>
-                  </button>
+              <button
+                className="btn btn-primary mt-3 d-flex align-items-center justify-content-center"
+                onClick={() => handleAgregarYAlertar(productoSeleccionado)}
+                style={{ width: 'auto', padding: '10px 20px', fontSize: '1rem' }} // Ajuste de estilo y tamaño de fuente
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-cart-plus me-2" viewBox="0 0 16 16">
+                  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                </svg>
+                Agregar al Carrito
+              </button>
             </div>
           </div>
         </div>
