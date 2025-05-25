@@ -1,0 +1,65 @@
+#Card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-top: 30px;
+
+}
+#card__container {
+  width: 340px;
+  height: 350px;
+  outline: 2px solid rgb(0, 0, 0);
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 40px 96px rgba(0, 0, 0, 0.3);
+}
+.imagen {
+  width: 150px;
+  height: 150px;
+
+}
+:root {
+  background: linear-gradient(to right, #659fb3, #0000FF, #659fb3);
+
+
+}
+.titulo {
+  font-size: 17px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+
+}
+
+
+.precio {
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+
+
+}
+#vermas{
+  font-size: 17px;
+width: 40%;
+height: 30px;
+border-radius: 10px;
+  cursor: pointer;
+  background-color: #98a6f1;
+
+}
+
+#productos{
+  background-color: #98a6f1;
+}
+.id{
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+body {
+  background-color: rgb(0, 0, 0);
+}
